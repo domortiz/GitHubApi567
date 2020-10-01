@@ -5,8 +5,7 @@ import json
 def check_repo(username):
 
     if len(username) == 0:
-        print("No Repositories")
-        return False
+        print("No username entered")
 
     else:
         r = requests.get('https://api.github.com/users/' + username + '/repos')
@@ -19,7 +18,6 @@ def check_repo(username):
             commits_page = commits_page.json()
             commits = len(commits_page)
             print('Repository: ' + d['name'] + '\t\t\t commits: ' + str(commits))
-        return True
 
 
 if __name__ == "__main__":
